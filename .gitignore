@@ -131,6 +131,10 @@ dmypy.json
 ./data
 *.csv
 *.xlsx
+*.geojson
+
 
 # chromedrive
 *.exe
+data/dong.geojson
+data/HangJeongDong_ver20220701.geojson
