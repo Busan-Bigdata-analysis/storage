@@ -1,4 +1,4 @@
-![header](https://capsule-render.vercel.app/api?type=rect&color=b0b0b0&height=300&section=header&text=Project%20distribution&fontColor=ffffff&fontSize=75&fontAlign=50&fontAlignY=50)
+![header](https://capsule-render.vercel.app/api?type=rect&color=b0b0b0&height=300&section=header&text=Distribution&fontColor=ffffff&fontSize=75&fontAlign=50&fontAlignY=50)
 
 <br/>
 
