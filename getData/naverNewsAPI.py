@@ -7,7 +7,7 @@ import time
 import json
 
 cilent_id = 'ZXSDm8tUd9A5DceOnMb2'
-cilent_secret = ''
+cilent_secret = 'PNbgyDA7G8'
 
 # Url 접속 요청 후 응답 리턴 함수
 def getRequestUrl(url):
