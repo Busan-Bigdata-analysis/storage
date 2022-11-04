@@ -4,7 +4,7 @@ import datetime
 import json
 
 # 변수 관리
-Servicekey = 'GqnJtrJmr9aDL2eqb6lEVP4OaxCX7MR5jUMHLCMy4mUhDis9Ps90aXp8mA2M9WM%2BFw6LLzmutOTOMqpkr0PunQ%3D%3D'
+Servicekey = ''
 COLUMN_NAMES = ['상태명','상점명','대분류','중분류','업종명(소분류)','주소','개업일','폐업일','좌표']
 
 def getRequestUrl(url):
@@ -55,10 +55,9 @@ def buildDataframe(jsonText):
 
 def main():
     rows = int(input('한 페이지에 출력할 튜플의 갯수를 입력하세요 : '))
-    # 1000개씩 1~287 288~855 번까지 진행 
-    idx = 282
+    idx = 1
     
-    dataframe = pd.read_csv('data/total_data/부산광역시_상권 점포이력정보.xlsx',encoding='cp949',index_col=0)
+    dataframe = pd.DataFrame(columns=COLUMN_NAMES)
 
     while True:
         typejson = getStoreInfo(rows, idx)
@@ -66,10 +65,9 @@ def main():
             break
         newDataframe = buildDataframe(typejson)
         dataframe = pd.concat([dataframe,newDataframe],ignore_index=True)
-        newDataframe.to_csv('data/total_data/부산광역시_상권 점포이력정보_1.xlsx',encoding='cp949')
+        dataframe.to_excel('data/total_data/부산광역시_상권 점포이력정보.xlsx')
         print(str(idx)+'---------'*5)
         idx += 1
-        break
 
 if __name__=='__main__':
     main()
