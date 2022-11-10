@@ -26,7 +26,7 @@ def build_dataframe(file_name):
     if re.search('xlsx', file_name):
         df = pd.read_excel(f'data/total_data/{file_name}')
     elif re.search('csv', file_name):
-        df = pd.read_csv(f'data/total_data/{file_name}',encoding='utf-8')
+        df = pd.read_csv(f'data/total_data/{file_name}',encoding='cp949')
     else:
         print('열수 없는 파일입니다.')
     
@@ -46,7 +46,7 @@ def append_dataframe(df):
 
 def get_grade(df,col_name):
     grade = col_name+' 레벨'
-    df[grade] = round(round(df[col_name].rank(pct=True),2)*10,0)
+    df[grade] = round(round(df[col_name].rank(pct=True),2)*100,0)
     return df
 
 
@@ -67,5 +67,7 @@ if __name__=='__main__':
         if break_po==1:
             break
     
-    total_dataFrame.to_csv(f'data/total_data/{file_name}'+'_handling.xlsx',encoding='cp949')
+        file_name = file_name.split('.')[0]
+
+    total_dataFrame.to_csv(f'data/total_data/{file_name}'+'_handling.csv', encoding='cp949')
 
